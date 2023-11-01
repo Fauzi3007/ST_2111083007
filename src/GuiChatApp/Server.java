@@ -3,22 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GuiClientServer;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.HashSet;
-import java.util.Set;
+package GuiChatApp;
 
 /**
  *
  * @author Fauzi
  */
-public class GuiServer {
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class Server {
+
     private static final int PORT = 12345;
     private static Set<PrintWriter> clientWriters = new HashSet<>();
 
@@ -94,3 +90,5 @@ public class GuiServer {
         }
     }
 }
+
+

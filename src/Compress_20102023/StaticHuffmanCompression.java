@@ -85,7 +85,9 @@ public class StaticHuffmanCompression {
         String compressedData = compress(text, huffmanCodes);
 
         System.out.println("Original Data: " + text);
+        System.out.println("Original Data: " + text.length()*8);
         System.out.println("Compressed Data: " + compressedData);
+        System.out.println("Compressed Data: " + compressedData.length());
 
         String decompressedData = decompress(compressedData, huffmanCodes);
         System.out.println("Decompressed Data: " + decompressedData);
