@@ -18,20 +18,22 @@ public class Lat1Banner extends JFrame {
 
         setVisible(true);
 
-        // Memulai thread untuk menggeser teks
-        Thread thread = new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(500); // Menunggu setengah detik
-                    input = input.substring(1) + input.charAt(0);
-                    SwingUtilities.invokeLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            output.setText(input);
-                        }
-                    });
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(500); 
+                        input = input.substring(1) + input.charAt(0);
+                        SwingUtilities.invokeLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                output.setText(input);
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });

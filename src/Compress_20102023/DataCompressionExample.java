@@ -35,8 +35,9 @@ public class DataCompressionExample {
         try {
             byte[] compressedData = compressData(dataBytes);
             System.out.println("Original Data: " + originalData);
+            System.out.println("Original Data: " + originalData.length()*8);
             System.out.println("Compressed Data: " + new String(compressedData));
-
+            System.out.println("Compressed Data: " + new String(compressedData).length());
             byte[] decompressedData = decompressData(compressedData);
             System.out.println("Decompressed Data: " + new String(decompressedData));
         } catch (Exception e) {
