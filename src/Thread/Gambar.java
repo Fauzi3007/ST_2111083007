@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Gambar {
     public static void main(String[] args) {
-        String filePath = "F:\\gambar.png"; 
+        String filePath = "F:\\gambar.jpeg"; 
 
         try {
             String newText = "Hello World";
@@ -18,7 +18,7 @@ public class Gambar {
             bufferedWriter.newLine(); 
             bufferedWriter.close();
 
-            System.out.println("Teks berhasil ditambahkan ke file teks.");
+            System.out.println("Teks berhasil ditambahkan ke file gambar.");
         } catch (IOException e) {
             e.printStackTrace();
         }

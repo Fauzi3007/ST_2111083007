@@ -27,15 +27,12 @@ public class Enkrip4 {
          int textLength = plainText.length();
         int keyLength = secretKey.length();
 
-        // Make sure the key and text have the same length
         if (keyLength < textLength) {
-            // Pad the key with 'A' to match the text length
             while (keyLength < textLength) {
                 secretKey += 'A';
                 keyLength++;
             }
         } else if (keyLength > textLength) {
-            // Truncate the key to match the text length
             secretKey = secretKey.substring(0, textLength);
         }
         
