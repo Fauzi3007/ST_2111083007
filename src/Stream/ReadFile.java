@@ -17,8 +17,7 @@ class ReadFile {
         } catch (Exception e) {
             System.out.println("File Not Found!");
         }
-
-            
+     
         try {
             char data;
             int temp;
@@ -26,7 +25,7 @@ class ReadFile {
                 temp = fis.read();
                 data = (char) temp;
                 if (temp != -1) {
-                    System.out.print(data);
+                    System.out.print(data +"("+temp+")");
                 }
             } while(temp != -1);
 
