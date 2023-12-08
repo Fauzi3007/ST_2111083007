@@ -5,6 +5,9 @@
 package com.fauzi.nilai.vo;
 
 
+import java.time.LocalDate;
+
+
 /**
  *
  * @author Fauzi
@@ -12,18 +15,20 @@ package com.fauzi.nilai.vo;
 
 
 public class Mahasiswa {
-  
+ 
     private long id;
     private String nama;
     private String email;
+    private LocalDate tglLahir;
 
     public Mahasiswa() {
     }
 
-    public Mahasiswa(long id, String nama, String email) {
+    public Mahasiswa(long id, String nama, String email, LocalDate tglLahir) {
         this.id = id;
         this.nama = nama;
         this.email = email;
+        this.tglLahir = tglLahir;
     }
 
     public long getId() {
@@ -50,12 +55,18 @@ public class Mahasiswa {
         this.email = email;
     }
 
+    public LocalDate getTglLahir() {
+        return tglLahir;
+    }
+
+    public void setTglLahir(LocalDate tglLahir) {
+        this.tglLahir = tglLahir;
+    }
+
     @Override
     public String toString() {
-        return "Mahasiswa{" + "id=" + id + ", nama=" + nama + ", email=" + email + '}';
+        return "Mahasiswa{" + "id=" + id + ", nama=" + nama + ", email=" + email + ", tglLahir=" + tglLahir + '}';
     }
-    
-    
-    
-    
+
+   
 }

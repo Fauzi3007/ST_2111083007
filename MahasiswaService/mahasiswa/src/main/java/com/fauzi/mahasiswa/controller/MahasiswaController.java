@@ -6,6 +6,7 @@ package com.fauzi.mahasiswa.controller;
 
 import com.fauzi.mahasiswa.entity.Mahasiswa;
 import com.fauzi.mahasiswa.repository.MahasiswaService;
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -53,8 +54,9 @@ public class MahasiswaController {
     @PutMapping(path = "{id}")
     public void update(@PathVariable("id") Long id,
             @RequestParam(required = false) String nama,
-            @RequestParam(required = false) String email){
-        mahasiswaService.update(id, nama, email);
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) LocalDate tglLahir){
+        mahasiswaService.update(id, nama, email,tglLahir);
     }
     
 }

@@ -22,12 +22,12 @@ public class Nilai {
     private long id;
     private long idMahasiswa;
     private long idMatakuliah;
-    private Integer nilai;
+    private double nilai;
 
     public Nilai() {
     }
 
-    public Nilai(long id, long idMahasiswa, long idMatakuliah, Integer nilai) {
+    public Nilai(long id, long idMahasiswa, long idMatakuliah, double nilai) {
         this.id = id;
         this.idMahasiswa = idMahasiswa;
         this.idMatakuliah = idMatakuliah;
@@ -58,11 +58,11 @@ public class Nilai {
         this.idMatakuliah = idMatakuliah;
     }
 
-    public Integer getNilai() {
+    public double getNilai() {
         return nilai;
     }
 
-    public void setNilai(Integer nilai) {
+    public void setNilai(double nilai) {
         this.nilai = nilai;
     }
 

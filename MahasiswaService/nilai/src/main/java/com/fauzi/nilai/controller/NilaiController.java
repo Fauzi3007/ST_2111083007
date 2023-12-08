@@ -48,7 +48,7 @@ public class NilaiController {
     public void update(@PathVariable("id") Long id,
             @RequestParam(required = false) Long idMahasiswa,
             @RequestParam(required = false) Long idMatakuliah,
-            @RequestParam(required = false) Integer nilai){
+            @RequestParam(required = false) double nilai){
         nilaiService.update(id, idMahasiswa, idMatakuliah, nilai);
     }
     

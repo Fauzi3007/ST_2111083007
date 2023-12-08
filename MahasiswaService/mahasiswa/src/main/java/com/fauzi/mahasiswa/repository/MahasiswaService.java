@@ -4,6 +4,7 @@ package com.fauzi.mahasiswa.repository;
 import com.fauzi.mahasiswa.entity.Mahasiswa;
 import com.fauzi.mahasiswa.repository.MahasiswaRepository;
 import jakarta.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -52,7 +53,7 @@ public class MahasiswaService {
     }
     
     @Transactional
-    public void update(Long id, String nama, String email){
+    public void update(Long id, String nama, String email,LocalDate tglLahir){
         Mahasiswa mahasiswa = mahasiswaRepository.findById(id)
         .orElseThrow(()-> new IllegalStateException("Mahasiswa tidak ada"));
         
@@ -61,6 +62,10 @@ public class MahasiswaService {
         }
         
         if (email != null && email.length()>0 && !Objects.equals(mahasiswa.getEmail(), email)) {
+            mahasiswa.setEmail(email);
+        }
+        
+        if (tglLahir != null && !Objects.equals(mahasiswa.getTglLahir(), tglLahir)) {
             mahasiswa.setEmail(email);
         }
         

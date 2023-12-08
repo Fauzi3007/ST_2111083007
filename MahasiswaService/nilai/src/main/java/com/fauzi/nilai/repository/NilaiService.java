@@ -52,7 +52,7 @@ public class NilaiService {
     }
     
     @Transactional
-    public void update(Long id, Long idMahasiswa, Long idMatakuliah, Integer nilai){
+    public void update(Long id, Long idMahasiswa, Long idMatakuliah, Double nilai){
         Nilai nilaiUpdate = nilaiRepository.findById(id)
         .orElseThrow(()-> new IllegalStateException("Nilai tidak ada"));
         
@@ -64,7 +64,7 @@ public class NilaiService {
             nilaiUpdate.setIdMatakuliah(idMatakuliah);
         }
         
-        if (nilai != null && !Objects.equals(nilaiUpdate.getNilai(), nilai)) {
+        if (nilai != null && Objects.equals(nilaiUpdate.getNilai(), nilai)) {
             nilaiUpdate.setNilai(nilai);
         }
     }
@@ -73,9 +73,10 @@ public class NilaiService {
     public ResponseTemplate getNilai(Long nilaiId){
         ResponseTemplate vo = new ResponseTemplate();
         Nilai nilai = nilaiRepository.findById(nilaiId).orElseThrow(()->new IllegalStateException("Nilai Tidak Ada"));
-        Mahasiswa mahasiswa = restTemplate.getForObject("http://localhost:9001/api/v1/mahasiswa/"+nilai.getIdMahasiswa(),Mahasiswa.class);
+        Mahasiswa mahasiswa = restTemplate.getForObject("http://localhost:9001/api/v1/mahasiswa/"
+                +nilai.getIdMahasiswa(),Mahasiswa.class);
         
-        Matakuliah matakuliah = restTemplate.getForObject("http://localhost:9002/api/v2/matakuliah/"+nilai.getIdMatakuliah(),Matakuliah.class );
+        Matakuliah matakuliah = restTemplate.getForObject("http://localhost:9002/api/v1/matakuliah/"+nilai.getIdMatakuliah(),Matakuliah.class );
         vo.setNilai(nilai);
         vo.setMahasiswa(mahasiswa);
         vo.setMatakuliah(matakuliah);
